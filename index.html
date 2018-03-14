@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Making Mobile Apps with Ionic and Angular</title>
+
+  <meta name="description" content="Ionic Framework Presentation: The beautiful, open source framework for developing native and mobile web apps with web technologies.">
+  <link rel="shortcut icon" href="img/favicon-96x96.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <!-- Our compiled CSS -->
+  <link rel="stylesheet" href="css/presentation.css">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/atom-one-dark.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+
+      <section>
+        <div class="flex-grid">
+          <div class="col col-1" style="text-align:right;">
+            <div style="margin-top:10%;max-width: 300px">
+              <img src="img/angular-icon.png" class="logo">
+              <p>Angular Vienna</p>
+            </div>
+          </div>
+          <div class="col col-2" style="text-align:center;">
+            <h4 style="line-height: 1.1em;  margin-top: 30px;" class="capitalize">Mobile Apps
+              <br/> with
+              <br/>
+              <span class="funky-pink">Ionic</span> &
+              <span class="funky-pink">Angular</span>
+            </h4>
+            <p>Indermohan Singh</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section>
+        <img src="img/dp.jpg" style="position: absolute; top:-10px; left:0; max-width: 260px; max-height: 260px; border-radius: 30px">
+        <div style="position: absolute; top: -100px; left: 300px;">
+          <h2>About Me</h2>
+        </div>
+        <ul style="position: absolute; top:0; left:300px;">
+          <li>Indermohan Singh</li>
+          <li>Software Developer, Greentube</li>
+          <li>Author
+            <i class="funky-pink">
+              <a target="_new" href="https://www.packtpub.com/web-development/ionic-2-blueprints">Ionic 2 Blueprints</a>
+            </i>
+          </li>
+          <li>Vienna, Austria</li>
+          <li>
+            <a href="https://twitter.com/imsinghk7">@imsinghk7</a>
+          </li>
+          <li>
+            <a href="https://github.com/imsingh">github.com/imsingh</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Overview</h2>
+        <ol>
+          <li>Hybrid Apps</li>
+          <li>Intro to Ionic</li>
+          <li>UI Components</li>
+          <li>Ionic Navigation</li>
+          <li>Using Native Features</li>
+          <li>Demos</li>
+        </ol>
+      </section>
+
+
+      <!--<section>
+          <blockquote>
+            &ldquo;I want to build an app!&rdquo;
+            <div style="margin-top: 30px; margin-left: 200px;">
+              - Literally everyone
+            </div>
+          </blockquote>
+        </section>-->
+
+
+      <section>
+        <h3>Building apps is
+          <i>Hard</i>
+        </h3>
+        <ul>
+          <li>Proficiency in each targeted platform</li>
+          <li>Domain-specific language to learn</li>
+          <li>Entirely separate code bases</li>
+          <li>Expensive development (time and cost)</li>
+          <li>Lack of portability with native approaches</li>
+        </ul>
+        <p style="margin-top: 60px">
+          <img src="img/apple.png" class="logo" width="200" height="200" style="margin-right: 10px">
+          <img src="img/android.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">
+          <img src="img/windows.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">
+          <!--<img src="img/safari.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">-->
+          <!--<img src="img/blackberry.png" class="logo" width="200" height="200" style="margin-left: 10px;">-->
+        </p>
+      </section>
+
+      <section>
+        <h3 style="font-size: 60px">Enter Hybrid Apps!</h3>
+        <p style="font-size: 32px">
+          <strong>HTML5</strong> with platform-specific UI</p>
+        <p style="font-size: 32px">Full access to
+          <strong>native APIs and SDKs</strong>
+        </p>
+        <p style="font-size: 32px">Familiar
+          <strong>web development</strong> environment</p>
+        <p style="font-size: 32px">
+          <strong>Single code base</strong> across native and the web</p>
+      </section>
+
+      <!--<section data-background="img/oldphones.jpg">
+          <blockquote style="font-size: 80px; font-family:Georgia; text-shadow: 5px 0 15px rgba(0,0,0,.7)">
+            &ldquo;It's not 2007 anymore&rdquo;
+          </blockquote>
+        </section>-->
+
+
+      <!--<section data-background="img/dylan.jpg">
+          <img src="img/times-changin.png" style="height: 100px; margin: 0 300px 40px 0;">
+          <h2>Devices have evolved considerably!</h2>
+          <table>
+            <tr>
+              <th>Year</th>
+              <th>Device</th>
+              <th>Processor</th>
+              <th>RAM</th>
+            </tr>
+            <tr>
+              <td>2007</td>
+              <td>iPhone</td>
+              <td>400 MHz</td>
+              <td>128 MB</td>
+            </tr>
+            <tr>
+              <td>2010</td>
+              <td>iPhone 4</td>
+              <td>1 GHz</td>
+              <td>512 MB</td>
+            </tr>
+            <tr>
+              <td>2015</td>
+              <td>iPhone 6</td>
+              <td>1.4 GHz dual-core</td>
+              <td>1 GB</td>
+            </tr>
+            <tr>
+              <td>2016</td>
+              <td>iPhone 6s</td>
+              <td>1.84 GHz dual-core</td>
+              <td>2 GB</td>
+            </tr>
+          </table>
+        </section>-->
+
+
+      <!--<section>
+          <h4 style="font-size:50px; margin:0;">Much better</h4>
+          <h4 style="font-size:80px;">WEB APIs!</h4>
+          <p>Performant animation with GPU compositing</p>
+          <p>Advanced mobile device features and APIs</p>
+          <p>Web-workers to offload tasks from UI</p>
+          <p>Modern <strong>Chromium</strong> for Android</p>
+          <p style="text-align:center;">
+            <img src="img/caniuse-querySelector.png" width=460 class="logo">
+            <img src="img/caniuse-flexbox.png" width=460 class="logo">
+          </p>
+          <p>Source: <a href="http://caniuse.com">caniuse.com</a></p>
+        </section>
+
+        <section>
+          <h2>Users keeping devices updated</h2>
+          <h4>Example: Rapid iOS Upgrades</h4>
+          <img src="img/ios9adoption2.png">
+          <p style="font-size:10px">https://mixpanel.com/trends/#report/ios_9</p>
+        </section>-->
+
+
+      <!--
+        <section data-background="white">
+          <img src="img/android-adoption.png">
+          <p style="font-size:10px">https://mixpanel.com/trends/#report/android_os_adoption</p>
+        </section>
+      -->
+
+
+      <!--
+        <section>
+          <h3 style="margin:0">Native SDKs...</h3>
+          <h2 style="font-size:2.2em;">Are Great!</h2>
+          <p style="margin:30px auto 20px auto; width: 600px">
+            Revolutionary UI, integrated sensors APIs, views, navigation, stack history, transitions, interactions, gestures, etc.
+          </p>
+            <img src="img/native-sdk.png" style="width:66%">
+        </section>
+      -->
+
+      <section>
+        <h2>Hybrid Development</h2>
+        <img src="img/websdk.png">
+      </section>
+
+      <section>
+        <h4>something missing?</h4>
+      </section>
+
+      <section>
+        <h2>Here comes Ionic!</h2>
+        <img src="img/websdk-ionic.png">
+      </section>
+
+      <section data-background="img/phones-stacked.png">
+        <h2 style="color:black; margin-bottom: 50px">How it all comes together</h2>
+        <ul class="stack">
+          <li style="background: #20ab93">Your App</li>
+          <li style="background: #4c8df5">Ionic</li>
+          <li style="background: #d94442">Angular</li>
+          <li style="background: #3b4854">Cordova</li>
+          <li style="background: #d4deee; color: #3b4854;">Native SDKs</li>
+        </ul>
+      </section>
+
+      <section data-background="white">
+        <img src="img/ionic-logo-portrait.png" style="max-width:300px;">
+      </section>
+
+      <!-- <section data-background="#EFF1F5">
+        <img src="img/continuity.png" style="width: 100%">
+      </section> -->
+
+      <section>
+        <h2>Ionic UI Components</h2>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/list/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h2>Lists</h2>
+          <ul style="margin-left: 70px">
+            <li>Angular Directive</li>
+            <li>Buttons exposed by swiping</li>
+            <li>Reorder</li>
+          </ul>
+          <pre><code data-trim contenteditable class="xml">
+&lt;ion-list 
+  reorder=&quot;true&quot; 
+  (ionItemReorder)=&quot;reorderItems($event)&quot;&gt;
+  &lt;button ion-item *ngFor=&quot;let item of items&quot;&gt;
+    {{ item.title }}
+  &lt;/button&gt;
+&lt;/ion-list&gt;
+</code></pre>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/virtual-scroll/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Virtual Scrolling</h3>
+          <ul style="margin-left: 70px">
+            <li>Inspired by iOS’s UICollectionView</li>
+            <li>Scroll through thousands of items</li>
+            <li>Only renders the viewable items</li>
+            <li>Smooth scrolling!</li>
+          </ul>
+          <pre><code data-trim data-noescape contenteditable class="xml">
+            &lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
+              &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
+                {{item}}
+              &lt;/ion-item&gt;
+            &lt;/ion-list&gt;
+</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/components/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Other Components</h3>
+          <ul style="margin-left: 70px">
+            <li>Side Menus</li>
+            <li>Actionsheet</li>
+            <li>Modal</li>
+            <li>Pull To Refresh</li>
+            <li>Spinners</li>
+            <li>Slidebox</li>
+            <li>Infinite Scroll</li>
+            <li>Swipeable List Options</li>
+            <li>Popup</li>
+            <li>Popover</li>
+            <li>Loading Overlay</li>
+            <li>Inputs</li>
+            <li>Buttons</li>
+            <li>etc.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h4>Navigation</h4>
+      </section>
+
+      <section>
+        <h3>Navigation</h3>
+        <ul>
+          <li>No Angular Router</li>
+          <li>No Router Config</li>
+          <li class="funky-pink">How does navigation works then?</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/ionic-page/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Ionic Page</h3>
+          <ul>
+            <li>Angular Component</li>
+            <li>They are application Component. a.k.a Router States</li>
+          </ul>
+          <pre><code data-trim data-noescape contenteditable class="xml">
+&lt;ion-header&gt;
+  &lt;!-- Title and Navigation Controls --&gt;
+&lt;/ion-header&gt;&#10;
+&lt;ion-content&gt; 
+  &lt;!-- Main Content of Page --&gt;
+&lt;/ion-content&gt;&#10;
+&lt;ion-footer&gt;
+  &lt;!-- Whatever you want to put --&gt;
+&lt;/ion-footer&gt;
+        </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/push-pop/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Ionic Router</h3>
+          <ul style="margin-left: 70px">
+            <li>Stack based Navigation</li>
+            <li>Push/Pop Page</li>
+            <li>Last Page is shown on Screen</li>
+            <li>Pages can be reused</li>
+            <li>and they be used recursively</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>View Projection</h3>
+        <pre><code data-trim data-noescape contenteditable class="xml">
+&lt;router-outlet&gt;&lt;/router-outlet&gt; &lt;!-- Angular --&gt;&#10;
+        </code></pre>
+        <pre><code data-trim data-noescape class="javascript">
+@Component(
+  template: `&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;`
+})
+class MyApp {
+  // rootPage is the first page of the app
+  public rootPage: any = StartPage;
+
+  constructor(){}
+}
+          </code></pre>
+      </section>
+      <section>
+        <h3>Navigating Programmatically</h3>
+        <pre><code data-trim data-noescape class="javascript">
+import { SecondPage } from './pages/second/second';
+import { NavController } from 'ionic-angular';
+...
+class MyApp {
+...
+  constructor(private navCtrl: NavController) {}
+  openPage() {
+    this.navCtrl.push(SecondPage);
+  }
+  goBack() {
+    this.navCtrl.pop();
+  }
+}
+          </code></pre>
+
+      </section>
+
+      <section>
+        <h3>Navigation Parameters</h3>
+        <h5>Sending Page</h5>
+        <pre><code data-noescape data-trim contenteditable class="javascript">
+  ...
+  params:any = { id: 10 };
+  openPage() {
+    this.navCtrl.push(SecondPage, <mark>params</mark>);
+  }
+          </code></pre>
+        <h5>Receiving Page</h5>
+        <pre><code data-trim data-noescape class="javascript">
+import { NavParams } from 'ionic-angular';
+...
+params:any = { id: 10 };
+contructor(private params:NavParams) {
+  let id = this.params.get('id');
+}
+          </code></pre>
+
+
+      </section>
+
+      <section>
+        <h3>Navigating with Directives</h3>
+        <ul>
+          <li>navPush </li>
+          <li>navPop</li>
+          <li>navParams</li>
+        </ul>
+
+        <pre><code data-trim data-noescape contenteditable class="xml">
+&lt;button ion-button [navPush]=&#34;pushPage&#34; [navParams]=&#34;params&#34;&gt;Go&lt;/button&gt;
+&lt;button ion-button navPop&gt;Go Back&lt;/button&gt;
+         </code></pre>
+
+        <pre><code data-trim data-noescape contenteditable class="javascript">
+class MyPage {
+  params: Object;
+  pushPage: any;
+  constructor(){
+   this.pushPage = <mark>LoginPage;</mark>
+   this.params   = <mark>{ id: 42 };</mark>
+  }
+}
+         </code></pre>
+      </section>
+
+      <section>
+        <h3>LifeCycle Events</h3>
+        <ul>
+          <li>ionViewDidLoad</li>
+          <li>ionViewWillEnter</li>
+          <li>ionViewDidEnter</li>
+          <li>ionViewWillLeave</li>
+          <li>ionViewDidLeave</li>
+          <li>ionViewWillUnload</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Guards</h3>
+        <ul>
+          <li>ionViewCanEnter:boolean</li>
+          <li>ionViewCanLeave:boolean</li>
+        </ul>
+        <pre><code data-trim data-noescape>
+...
+export class MyIonicPage {
+  ...
+  ionViewCanEnter() {
+    if(something) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+          </code></pre>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/tabs/index.html"></iframe>
+        </div>
+
+        <div class="col code">
+          <h3>Tabs</h3>
+          <pre><code data-trim data-noescape class="xml">
+&lt;ion-tabs&gt;
+  &lt;ion-tab [root]=&quot;firstTab&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;secondTab&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;thirdTab&quot;&gt;&lt;/ion-tab&gt;
+&lt;/ion-tabs&gt;
+            </code></pre>
+          <ul>
+            <li>Each Tab has Own Navigation History</li>
+            <li>You need to Specify Root Page for Each Tab</li>
+            <li>Think of &lt;ion-tab&gt; as &lt;ion-nav&gt;</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <style>
+          .button {
+            background-color: #4593c7;
+            -moz-border-radius: 28px;
+            -webkit-border-radius: 28px;
+            border-radius: 28px;
+            border: 1px solid #18ab29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 16px 31px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #f4fff2;
+            margin-bottom: 10px;
+          }
+
+          #dummyBtn {
+            padding: 10px;
+            /* margin-right: 10px; */
+          }
+        </style>
+        <div class="col preview demo-frame">
+          <iframe id="platformFrame" isrc="demos/platform-continuity/index.html?ionicplatform=ios"></iframe>
+        </div>
+
+        <div class="col code">
+          <h3>Platform Continuity</h3>
+          <button class="button" id="iosBtn">iOS</button>
+          <br/>
+          <button class="button" id="androidBtn">Android</button>
+          <br/>
+          <button class="button" id="windowsBtn">Windows</button>
+          <br/>
+          <button id="dummyBtn"></button>
+          <br/>
+        </div>
+        <script>
+          var iosBtn = document.querySelector('#iosBtn');
+          var androidBtn = document.querySelector('#androidBtn');
+          var windowsBtn = document.querySelector('#windowsBtn');
+          var dummyBtn = document.querySelector('#dummyBtn');
+          var platformFrame = document.querySelector('#platformFrame');
+          var mainURL = 'demos/platform-continuity/index.html';
+
+          iosBtn.addEventListener('click', function () {
+            var url = mainURL + "?ionicplatform=ios";
+            platformFrame.setAttribute('isrc', url);
+            platformFrame.setAttribute('src', url);
+          });
+
+          androidBtn.addEventListener('click', function () {
+            var url = mainURL + "?ionicplatform=android";
+            platformFrame.setAttribute('isrc', url);
+            platformFrame.setAttribute('src', url);
+          });
+
+          windowsBtn.addEventListener('click', function () {
+            var url = mainURL + "?ionicplatform=windows";
+            platformFrame.setAttribute('isrc', url);
+            platformFrame.setAttribute('src', url);
+          });
+
+          dummyBtn.addEventListener('click', function () {
+            var url = 'demos/blue-screen/index.html';
+            platformFrame.setAttribute('isrc', url);
+            platformFrame.setAttribute('src', url);
+          });
+        </script>
+      </section>
+
+      <section>
+        <h3>Using Native Features</h3>
+        <ul>
+          <li>Cordova Plugins</li>
+          <ul>
+            <li>JavaScript API</li>
+            <li>Native Code</li>
+          </ul>
+          <li>Ionic Native: Observable/Promise Wrapper for Cordova Plugins</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Installing Plugins</h3>
+        <p>Find the Plugin you need at https://ionicframework.com/docs/native/</p>
+        <p>
+          <pre><code data-trim class="bash">
+$ ionic cordova plugin add cordova-plugin-camera
+$ npm install @ionic-native/camera --save</code></pre>
+        </p>
+
+      </section>
+
+      <section>
+        <h3>Using Plugins</h3>
+        <pre><code data-trim data-noescape contenteditable>
+import { Camera } from '@ionic-native/camera';
+@NgModule({
+  ...
+  providers: [
+    ...
+    <mark>Camera</mark>
+  ]
+})
+</code></pre>
+        <pre><code data-trim data-noescape>
+  ...
+  constructor(private camera: Camera) { }
+  getPicture() {
+    <mark>this.camera.getPicture(options)</mark>
+    <mark>.then(imageData => {})</mark>
+  }
+</code></pre>
+      </section>
+
+      <!-- <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/tabs/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Navigation</h3>
+          <ul style="margin-left: 70px">
+            <li>Native-app style navigation</li>
+            <li>Transitions follow direction of nav</li>
+            <li>Updates the app's URL</li>
+            <li>Supports parallel histories</li>
+            <li>Swipe to go back</li>
+          </ul>
+          <pre><code data-trim contenteditable class="xml">
+<ion-tabs selectedIndex="2">
+  <ion-tab [root]="tab1Root"></ion-tab>
+  <ion-tab [root]="tab2Root"></ion-tab>
+  <ion-tab [root]="tab3Root"></ion-tab>
+</ion-tabs></code></pre>
+        </div>
+      </section> -->
+
+
+      <!--
+        <section>
+          <div class="col preview demo-frame">
+            <iframe isrc="demos/swipe-back/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Swipe To Go Back</h3>
+            <ul style="margin-left: 70px">
+              <li>Swipe back to previous view</li>
+              <li>Interactive transition</li>
+              <li>Benefit of cached views</li>
+              <li>Still updates the app's URL</li>
+              <li>WebView (Cordova) only</li>
+            </ul>
+          </div>
+        </section>
+      -->
+
+
+      <section data-background="white">
+        <p>
+          <code style="font-size: 1.2em;" class="ionic-blue">npm install -g ionic cordova</code>
+        </p>
+        <!--<img src="img/cli.png" height="220" style="border: 0">-->
+        <p>
+          <code style="font-size: 1.2em" class="ionic-blue">ionic start myApp</code>
+        </p>
+      </section>
+
+      <section>
+        <h3>Running App using DevApp</h3>
+        <ul>
+          <li>No Need to install Native SDKs to test app</li>
+          <li>Install the Ionic DevApp for Android/iOS, then run</li>
+        </ul>
+        <pre><code style="text-align:center"data-trim data-noescape>$ ionic serve -c </code></pre>
+        <ul>
+          <li>Then you can test your app on device right away</li>
+          <li>
+            <a target="_new" href="https://ionicframework.com/docs/pro/devapp/">
+              <span class="funky-pink">Ionic DevApp Link</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!--<section data-background="#232323">
+        <h2 style="color:#32b83b;font-family:Monaco;">
+          <strong>Demo</strong>
+        </h2>
+        <h6 style="color:#32b83b;font-family:Monaco;">I hope it works!</h6>
+      </section>-->
+
+      <section>
+        <h2>What's next?</h2>
+        <br />
+        <p>
+          <strong>Getting started guide</strong>
+          <br />
+          <a href="http://ionicframework.com/getting-started/" target="_blank">
+            <span class="light-text">ionicframework.com/getting-started</span>
+          </a>
+        </p>
+        <br />
+        <p>
+          <strong>Documentation</strong>
+          <br />
+          <a href="http://ionicframework.com/docs/" target="_blank">
+            <span class="light-text">ionicframework.com/docs</span>
+          </a>
+        </p>
+        <br/>
+      </section>
+
+      <section>
+        <h1>Questions?</h1>
+        <h5>twitter: @imsinghk7</h5>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+          // Full list of configuration options available at:
+          // https://github.com/hakimel/reveal.js#configuration
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+              { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/highlight/highlight.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+            ]
+          });
+
+          Reveal.addEventListener('slidechanged', function (event) {
+            // load iframes on page enter to speed up initial load time
+            console.log(event)
+            var iframe = event.currentSlide.querySelector('iframe')
+            if (iframe) {
+              iframe.setAttribute('src', iframe.getAttribute('isrc'));
+            }
+
+            var prevIframe = event.previousSlide.querySelector('iframe');
+            if (prevIframe) {
+              prevIframe.setAttribute('src', '');
+            }
+
+            // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+          });
+
+  </script>
+
+</body>
+
+</html>

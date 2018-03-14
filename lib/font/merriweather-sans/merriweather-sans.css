@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Merriweather Sans";
+    src: url('MerriweatherSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Merriweather Bold";
+    src: url('MerriweatherSans-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Merriweather ExtraBold";
+    src: url('MerriweatherSans-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Merriweather Italic";
+    src: url('MerriweatherSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

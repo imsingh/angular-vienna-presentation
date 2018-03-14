@@ -1,0 +1,72 @@
+Angular-Vienna Presentation Ideas
+
+# Simple Components
+  Buttons
+  Input Components
+  Grids
+
+# List
+  Simple List
+  Complex List
+  Virtual Scroll
+
+# Navigation System
+  # Page
+    Anatomy of Page
+
+  # View-Projection
+
+    <router-outlet></router-outlet>
+    <ion-nav [root]="rootPage"></ion-nav>
+
+  # JS/TS API
+
+    Description: It uses Push/Pop Navigation
+    API: navCtrl.push(Component, params?);
+       navCtrl.pop();	
+	
+  # Directives
+    navPush   : [navPush]="somePage" [navParams]="params"
+    navPop    : navPop
+    navParams : [navParams]="params"
+
+  # Tabs have their own nav stack
+
+  # View Cycle
+
+  # Navguards
+    ionViewCanLeave
+    ionViewCanEnter
+
+  # NavBar
+    A Navigation Toolbar, which has back button based on Nav Stack
+
+  # Tabs
+
+   TabsPage
+    <ion-tabs>
+      <ion-tab [root]="tab1Root"></ion-tab>
+      <ion-tab [root]="tab2Root"></ion-tab>
+      <ion-tab [root]="tab3Root"></ion-tab>
+    </ion-tabs>
+
+  # Menu
+  # Recursive Page Navigation Example
+  
+
+# Icons
+<ion-icon name="icon-name"></ion-icon>
+
+# CLI
+CLI commands that are cool.
+
+# Theming
+Changing Color Variables
+
+# Running the App
+  # Using ionic cordova run android
+  # Use DevApp
+
+
+// Code Highliting
+http://wsmoak.net/2015/09/16/presenting-source-code.html
